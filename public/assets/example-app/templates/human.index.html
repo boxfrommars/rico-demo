@@ -1,0 +1,26 @@
+<div class="page-header">
+    <h4>API Human index</h4>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="form-group has-success has-feedback">
+            <label class="control-label sr-only" for="search">Поиск</label>
+            <input class="form-control input-sm" ng-model="query" placeholder="Поиск" id="search" />
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <tbody>
+    <tr ng-repeat="human in humans | filter:query">
+        <td><a href="#/humans/{{ human.id }}" ng-bind="human.title"></a></td>
+        <td ng-bind="human.height"></td>
+        <td ng-bind="human.birthdate"></td>
+        <td class="grid-actions">
+            <a data-action="delete" href="" ng-click="remove(human)"><span class="glyphicon glyphicon-remove"></span></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="#/humans/create">Добавить</a>
