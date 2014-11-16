@@ -47,7 +47,12 @@ class UsersController extends \Controller
         $input = Input::all();
 
         if ($repo->login($input)) {
-            return Redirect::intended('/admin');
+            $user = Confide::user();
+            if (!$user->hasRole('admin')) {
+                return Redirect::intended('/');
+            } else {
+                return Redirect::intended('/admin');
+            }
         } else {
             if ($repo->isThrottled($input)) {
                 $err_msg = Lang::get('confide::confide.alerts.too_many_attempts');

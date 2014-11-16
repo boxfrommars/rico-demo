@@ -53,7 +53,7 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="/">Перейти на сайт</a></li>
-                            <li><a href="#">Выйти</a></li>
+                            <li><a href="{{ route('logout') }}">Выйти</a></li>
                         </ul>
                     </div>
                 </div>
